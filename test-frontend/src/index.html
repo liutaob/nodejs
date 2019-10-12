@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>users</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+</head>
+<body>
+<a href="/api/users">代理的AIPhello</a>
+<a href="/test/users">未代理TESThello</a>
+<a href="/api/abc">测试后端跳转</a>
+<!--登录成功ajax访问后端返回信息判断成功windows.location跳转-->
+	<div class="table-responsive">
+  <table class="table" id="myTable">
+    <th></th>
+    <tr><td>id</td><td>username</td><td>password</td><td>phone</td></tr>
+  </table>
+</div>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script src="js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+$.ajax({
+		// url:'http://localhost:8080/api/users',
+		url:'/api/users',
+		//url:'http://localhost/api/users',
+		// type:'get',
+		async:true,
+		dataType: 'json',
+        //crossDomain: true,
+		success:function(data){
+			console.log(data);
+			for(var i=0;i<data.length;i++){
+				$('#myTable').append('<tr><td>'+data[i].id+'</td><td>'+data[i].username+'</td><td>'+data[i].password+'</td><td>'+data[i].phone+'</td></tr>');
+			}
+			//$('#myTable').append
+		},
+		error:function(data){
+			console.log(data);
+			//console.log(data[0].id);
+
+		}
+	})
+	});
+</script>
+</body>
+
+	
+
+
+</html>
