@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/wayleung/test-demo#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "http": "^0.0.0",
     "http-proxy-middleware": "^0.19.1"
   }
